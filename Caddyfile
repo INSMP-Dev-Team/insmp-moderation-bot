@@ -1,0 +1,12 @@
+insmp.org {
+	redir https://www.insmp.org{uri} permanent
+}
+
+www.insmp.org {
+	root * /srv/insmp
+	file_server
+}
+
+auth.insmp.org {
+	reverse_proxy discord-moderation-sync:8080
+}
