@@ -1264,7 +1264,7 @@ class Moderation(commands.Cog):
             f"`{prefix}removewarn warn_id reason`\n\n"
             f"`{prefix}userinfo user_id`\n\n"
             f"`{prefix}syncbans affiliate_guild_id confirm` - copy current home-server bans to one specified affiliate server\n\n"
-            f"Durations support `s`, `m`, `h`, `d`, and `w`."
+            f"Durations support `s`, `m`, `h`/`hr`, `d`, and `w`"
         )
 
         await ctx.reply(message, mention_author=False)
