@@ -156,10 +156,10 @@ def target_label(user: Optional[discord.User], user_id: int) -> str:
 
 
 def duration_arg(duration_text: str, *, max_duration: Optional[timedelta] = timedelta(days=28)) -> timedelta:
-    match = re.fullmatch(r"(\d+)([smhdw])", duration_text.lower().strip())
+    match = re.fullmatch(r"(\d+)(s|m|h|hr|d|w)", duration_text.lower().strip())
 
     if not match:
-        raise commands.BadArgument("Invalid duration. Use `30s`, `10m`, `2h`, `7d`, or `1w`.")
+        raise commands.BadArgument("Invalid duration. Use `30s`, `10m`, `2h`/`2hr`, `7d`, or `1w`.")
 
     amount = int(match.group(1))
     unit = match.group(2)
@@ -168,6 +168,7 @@ def duration_arg(duration_text: str, *, max_duration: Optional[timedelta] = time
         "s": 1,
         "m": 60,
         "h": 60 * 60,
+        "hr": 60 * 60,
         "d": 60 * 60 * 24,
         "w": 60 * 60 * 24 * 7,
     }
