@@ -21,6 +21,7 @@ CORE_COGS = [
     "cogs.self_logging",
     "cogs.affiliate_owner",
     "cogs.giveaway",
+    "cogs.lockdown",
 ]
 
 OPTIONAL_COGS = []
