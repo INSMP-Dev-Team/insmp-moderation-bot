@@ -19,6 +19,7 @@ This bot is intended for use by a controlled network of approved servers. It is 
 - Warn system
 - User info command
 - Giveaway command
+- Channel lockdown / unlock command
 - Join guard / account age protection
 - Runtime affiliate management commands for bot owners
 - Optional ticket system with category dropdowns, close/archive flow, transcripts, and media logs
