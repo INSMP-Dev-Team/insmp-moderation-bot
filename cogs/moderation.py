@@ -909,7 +909,7 @@ class Moderation(commands.Cog):
         await ctx.reply(f"Unmute finished for `{target_user_id}`.\n{dm_result}", mention_author=False)
 
     @commands.command(name="syncbans", aliases=["synchomebans", "backfillbans"])
-    @commands.check(is_bot_owner)
+    @commands.check(is_ban_staff)
     async def backfill_bans(
         self,
         ctx: commands.Context,
