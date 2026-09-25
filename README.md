@@ -41,7 +41,7 @@ To enable tickets, set `ENABLE_TICKETS` to `true` and restart the bot. Then conf
 - `TICKET_LOG_CHANNEL_ID` for archived `.txt` transcripts
 - `TICKET_IMAGE_LOG_CHANNEL_ID` for forwarded ticket media
 - `TICKET_CLOSED_CATEGORY_ID` for closed ticket channels
-- `TICKET_REPORT_PING_ROLE_ID`, `TICKET_ADMIN_PING_ROLE_ID`, `TICKET_DISPUTE_PING_ROLE_ID`, and `TICKET_OTHER_PING_ROLE_ID` for category-specific pings
+- `TICKET_REPORT_PING_ROLE_ID`, `TICKET_ADMIN_PING_ROLE_ID`, `TICKET_DISPUTE_PING_ROLE_ID`, `TICKET_CUSTOM_ROLE_PING_ID`, `TICKET_AFFILIATE_PING_ROLE_ID` and `TICKET_OTHER_PING_ROLE_ID` for category-specific pings
 
 Use `/ticket_panel` in a text channel inside the Discord category where open tickets should be created.
 
