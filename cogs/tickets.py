@@ -29,6 +29,16 @@ TICKET_CATEGORIES = {
         "description": "Dispute a moderation action or decision.",
         "ping_setting": "TICKET_DISPUTE_PING_ROLE_ID",
     },
+    "custom_role": {
+        "label": "Custom Role",
+        "description": "Request a custom role.",
+        "ping_setting": "TICKET_CUSTOM_ROLE_PING_ROLE_ID",
+    },
+    "affiliate_server": {
+        "label": "Affiliate Server",
+        "description": "Apply for an affiliate server partnership.",
+        "ping_setting": "TICKET_AFFILIATE_PING_ROLE_ID",
+    },
     "other": {
         "label": "Other",
         "description": "Anything that does not fit another category.",
@@ -224,6 +234,81 @@ def is_media_attachment(attachment: discord.Attachment) -> bool:
     return any(filename.endswith(extension) for extension in MEDIA_EXTENSIONS)
 
 
+class CustomRoleRequestModal(discord.ui.Modal, title="Custom Role Request"):
+    role_name = discord.ui.TextInput(
+        label="Role Name",
+        placeholder="e.g. Sunset Wanderer",
+        max_length=100,
+    )
+    role_colors = discord.ui.TextInput(
+        label="Role Color(s)",
+        placeholder="e.g. #ff6600 or #ff6600, #ffcc00 for a gradient",
+        max_length=200,
+    )
+    role_icon = discord.ui.TextInput(
+        label="Role Icon",
+        placeholder="Emoji or image URL for the role icon",
+        max_length=200,
+        required=False,
+    )
+
+    def __init__(self, cog: "Tickets"):
+        super().__init__()
+        self.cog = cog
+
+    async def on_submit(self, interaction: discord.Interaction):
+        extra_fields = [
+            ("Requested Role Name", self.role_name.value),
+            ("Requested Color(s)", self.role_colors.value),
+            ("Requested Icon", self.role_icon.value or "Not provided"),
+        ]
+        await self.cog.open_ticket_from_panel(
+            interaction,
+            "custom_role",
+            extra_fields=extra_fields,
+        )
+
+
+class AffiliateServerRequestModal(discord.ui.Modal, title="Affiliate Server Request"):
+    server_link = discord.ui.TextInput(
+        label="Server Invite Link",
+        placeholder="https://discord.gg/...",
+        max_length=200,
+    )
+    server_id = discord.ui.TextInput(
+        label="Server ID",
+        placeholder="e.g. 123456789012345678",
+        max_length=32,
+    )
+    log_channel_id = discord.ui.TextInput(
+        label="Log Channel ID",
+        placeholder="e.g. 123456789012345678",
+        max_length=32,
+    )
+
+    def __init__(self, cog: "Tickets"):
+        super().__init__()
+        self.cog = cog
+
+    async def on_submit(self, interaction: discord.Interaction):
+        extra_fields = [
+            ("Server Invite Link", self.server_link.value),
+            ("Server ID", self.server_id.value),
+            ("Log Channel ID", self.log_channel_id.value),
+        ]
+        await self.cog.open_ticket_from_panel(
+            interaction,
+            "affiliate_server",
+            extra_fields=extra_fields,
+        )
+
+
+TICKET_CATEGORY_MODALS = {
+    "custom_role": CustomRoleRequestModal,
+    "affiliate_server": AffiliateServerRequestModal,
+}
+
+
 class TicketPanelView(discord.ui.View):
     def __init__(self, cog: "Tickets"):
         super().__init__(timeout=None)
@@ -250,7 +335,14 @@ class TicketCategorySelect(discord.ui.Select):
         )
 
     async def callback(self, interaction: discord.Interaction):
-        await self.cog.open_ticket_from_panel(interaction, self.values[0])
+        category_key = self.values[0]
+        modal_cls = TICKET_CATEGORY_MODALS.get(category_key)
+
+        if modal_cls is not None:
+            await interaction.response.send_modal(modal_cls(self.cog))
+            return
+
+        await self.cog.open_ticket_from_panel(interaction, category_key)
 
 
 class TicketManageView(discord.ui.View):
@@ -357,6 +449,7 @@ class Tickets(commands.Cog):
         self,
         interaction: discord.Interaction,
         category_key: str,
+        extra_fields: Optional[list[tuple[str, str]]] = None,
     ) -> None:
         if interaction.guild is None or not isinstance(interaction.user, discord.Member):
             await self.send_ephemeral(interaction, "Tickets can only be opened inside a server.")
@@ -462,6 +555,10 @@ class Tickets(commands.Cog):
         )
         embed.add_field(name="Opened By", value=interaction.user.mention, inline=True)
         embed.add_field(name="Category", value=category["label"], inline=True)
+
+        if extra_fields:
+            for field_name, field_value in extra_fields:
+                embed.add_field(name=field_name, value=field_value or "Not provided", inline=False)
 
         await ticket_channel.send(
             " ".join(mentions),
