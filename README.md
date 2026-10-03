@@ -18,8 +18,8 @@ This bot is intended for use by a controlled network of approved servers. It is 
 - Message, role, user, invite, join/leave, VC, and server-management logs
 - Warn system
 - User info command
-- Giveaway command
-- Channel lockdown / unlock command
+- Giveaway command with button-based entry and automatic winner selection, with a customizable title, description, button label, entry emoji (unicode or server custom emoji), and embed accent color
+- Channel lockdown / unlock commands with per-channel targeting and role whitelisting
 - Join guard / account age protection
 - Runtime affiliate management commands for bot owners
 - Optional ticket system with category dropdowns, close/archive flow, transcripts, and media logs
@@ -41,10 +41,9 @@ To enable tickets, set `ENABLE_TICKETS` to `true` and restart the bot. Then conf
 - `TICKET_LOG_CHANNEL_ID` for archived `.txt` transcripts
 - `TICKET_IMAGE_LOG_CHANNEL_ID` for forwarded ticket media
 - `TICKET_CLOSED_CATEGORY_ID` for closed ticket channels
-- `TICKET_REPORT_PING_ROLE_ID`, `TICKET_ADMIN_PING_ROLE_ID`, `TICKET_DISPUTE_PING_ROLE_ID`, `TICKET_CUSTOM_ROLE_PING_ID`, `TICKET_AFFILIATE_PING_ROLE_ID` and `TICKET_OTHER_PING_ROLE_ID` for category-specific pings
+- `TICKET_REPORT_PING_ROLE_ID`, `TICKET_ADMIN_PING_ROLE_ID`, `TICKET_DISPUTE_PING_ROLE_ID`, `TICKET_CUSTOM_ROLE_PING_ROLE_ID`, `TICKET_AFFILIATE_PING_ROLE_ID`, and `TICKET_OTHER_PING_ROLE_ID` for category-specific pings
 
 Use `/ticket_panel` in a text channel inside the Discord category where open tickets should be created.
-
 To enable the nation selector, set `ENABLE_NATION_SELECTOR` to `true` and restart the bot. Then configure:
 
 - `WHITELISTED_ROLE_ID` for the role granted after Minecraft account registration
