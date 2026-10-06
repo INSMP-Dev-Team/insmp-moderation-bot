@@ -38,6 +38,8 @@ except ImportError:
         return set()
 
 
+from common import is_ban_staff
+
 def is_bot_owner(ctx: commands.Context) -> bool:
     return config.is_bot_owner_id(ctx.author.id)
 
@@ -909,7 +911,7 @@ class Moderation(commands.Cog):
         await ctx.reply(f"Unmute finished for `{target_user_id}`.\n{dm_result}", mention_author=False)
 
     @commands.command(name="syncbans", aliases=["synchomebans", "backfillbans"])
-    @commands.check(is_ban_staff)
+    @commands.check(lambda ctx: is_ban_staff(ctx.author))
     async def backfill_bans(
         self,
         ctx: commands.Context,
