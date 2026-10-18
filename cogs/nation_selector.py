@@ -37,6 +37,7 @@ NATION_SETTINGS = [
     ("Savanna", "SAVANNA_ROLE_ID"),
     ("Swamp", "SWAMP_ROLE_ID"),
     ("Cherry", "CHERRY_ROLE_ID"),
+    ("Meadows", "MEADOWS_ROLE_ID"),
 ]
 
 NATION_CHOICES = [
