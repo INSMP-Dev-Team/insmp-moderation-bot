@@ -45,6 +45,156 @@ NATION_CHOICES = [
     for name, _setting in NATION_SETTINGS
 ]
 
+
+@dataclass(frozen=True)
+class NationInfo:
+    title: str
+    blurb: str
+    invite_url: str
+
+
+NATION_INFO: dict[str, NationInfo] = {
+    "Mushroom Island": NationInfo(
+        title="Mooshroom Isles",
+        blurb=(
+            "The Mooshroom Isles are a calm, secluded part of the world, free from hostile mobs "
+            "and vengeful conquerors. Our constitution enshrines rights, our mooshrooms are "
+            "protected against smuggling, and our potions/dried kelp are legal. As our own little "
+            "Hong Kong, we are an island nation with limitless food supplies, and near endless "
+            "opportunities."
+        ),
+        invite_url="https://discord.gg/B6F2raU8MX",
+    ),
+    "Dark Forest": NationInfo(
+        title="Vestiges of the UPD",
+        blurb=(
+            "A vestige of a once glorious United Provinces of the Dark Forest. The people here are "
+            "survivors and skilled craftsmen who survived a great tragedy of their original "
+            "homeland. Its citizens have entrusted their own will to a select few people who have "
+            "experienced the great tragedy first hand, ensuring stability moving towards an "
+            "uncertain future. The lands of the dark forest are enormous, with its interior full of "
+            "mysteries and magical moments that are waiting to be unveiled. We welcome those who "
+            "are willing to join the journey of our nation towards a prosperous future."
+        ),
+        invite_url="https://discord.gg/E7BkGq4Mtj",
+    ),
+    "Forest": NationInfo(
+        title="Forest of Rakau",
+        blurb=(
+            "Rakau (/'ɾaːkaw/), or the forest nation, is a highly religious nation being based in "
+            "nature and protecting the forest. The Rakau government is a theocratic council which "
+            "consists of 6 total elders. These elders include the Elder of Architecture, the Elder "
+            "of Defence, the Elder of Foreign Affairs, the Elder of Resources, the Elder of "
+            "Governance, and finally the Elder of Commerce. Each elder has their own focus point on "
+            "running the nation alongside a \"ring\" (like, a group) to help with their focus point. "
+            "For example, the Elder of Governance as well as the Ring of Order enforces the laws of "
+            "Rakau, and protects citizens within the nation.\n\n"
+            "If you believe you want to join this great nation, then join us today. Maybe you might "
+            "shape the future.\n\n"
+            "For more information about the Forest of Rakau, visit the "
+            "[wiki page](https://insmp.miraheze.org/wiki/The_Forest_of_Rakau) or as a forest "
+            "citizen, look around the discord server (or do both if you can)."
+        ),
+        invite_url="https://discord.gg/Sth3x4QtTG",
+    ),
+    "Plains": NationInfo(
+        title="The Ministerial Triarchy of Plains",
+        blurb=(
+            "Plains is a vast, open country of opportunity, with horses, a few too many flowers, "
+            "and government that finally figured out how to function. Having suffered multiple "
+            "coups in her past (some successful, some not) Plains is a weary nation, yet she is "
+            "ready for what is to come. Allied closely with Cherry, and dreams of prosperous trade "
+            "with her neighbors, Plains, under the watchful gaze of the Triarchs and the support of "
+            "her Parliament and Prime Minister, is ready to do her best, maintain the peace, and "
+            "make as many farms as possible. Will you join us and help us build a nation to stand "
+            "the test of time?"
+        ),
+        invite_url="https://discord.gg/4v4B8CRFNT",
+    ),
+    "Taiga": NationInfo(
+        title="The New Taigan Republic",
+        blurb=(
+            "The New Taigan Republic, a nation known for its stability, stunning landscape, and "
+            "many, many cities. During the early days Taiga built its reputation on Trade, "
+            "Neutrality and Diplomacy. The landscape is vast, with more than a few trees. Bordering "
+            "its close allies The United North and The Forest of Rakau. Its government formed and "
+            "stayed in the early days of the nation, being run by the 5 ministries, the Ministries "
+            "of Economics/business, Diplomacy, Agriculture, Infrastructure, and Defence all "
+            "overseen by the President. So let me ask you this, will you be the next citizen of the "
+            "glorious Taiga Nation?"
+        ),
+        invite_url="https://discord.gg/rCctj7ax82",
+    ),
+    "Savanna": NationInfo(
+        title="The Federated States of Savanna",
+        blurb=(
+            "In Savanna, you'll find armadillos, llamas, acacia trees, and a robust democracy with "
+            "multiple political parties and a functioning government. Join this cozy biome to help "
+            "chart its future and take part in its history. Some of our society's unique features "
+            "are workers' unions, a propaganda channel, and a totally not communist government. "
+            "Everyone is welcome, so come to the Federated States of Savanna!"
+        ),
+        invite_url="https://discord.gg/MgMMtZm6CR",
+    ),
+    "Cherry": NationInfo(
+        title="Cheli Baiom",
+        blurb=(
+            "Nestled between the eastern coast and a towering mountain range, the Cherrian Republic "
+            "is a nation of lush pink landscapes and a long-running history. Recently adopting a "
+            "new republican constitution centered around a democratic parliament, Cherry is "
+            "entering a new chapter. As a member of the Northern Islands Treaty Organization "
+            "(NITO), we maintain strong relationships with our neighbors while continuing to grow "
+            "at home. Whether you want to help shape our government, build among the mountains, "
+            "trade with our allies, or simply find a place to call home, the Cherrian Republic is "
+            "ready for you."
+        ),
+        invite_url="https://discord.gg/7QV2KRQvPQ",
+    ),
+    "Swamp": NationInfo(
+        title="Swampers",
+        blurb=(
+            "Hidden among the thick trees of the Mangrove and the only nation to have two ruling "
+            "Monarchs, the Swampers is a nation known for stability and acceptance of all people "
+            "within its walls, whether they be visitors from other nations, or members of Swamp "
+            "themselves. Despite the turbulent times, Swamp is surprisingly stable, with both "
+            "Monarchs being capable of handling issues that arise, capable of covering for each "
+            "other should one be needed elsewhere. So should you be looking for a nation that's "
+            "stable, is welcoming and has good relations, join the Swampers!"
+        ),
+        invite_url="https://discord.gg/Rvv5Z2SZTB",
+    ),
+    "Jungle": NationInfo(
+        title="The Federal Jungle Republic",
+        blurb=(
+            "The Jungle is brimming with Diversity, From the petite parrot to the towering temples "
+            "this lush land of ours is equal parts mystical and dangerous. Below its beautiful "
+            "canopies lies a dim and dense land home to many monsters. The people of the jungle are "
+            "therefore hardy, bursting with ambition and determined to survive. Under the "
+            "stewardship of our Ministers, The Federal Jungle Republic will transform this Green "
+            "Hell into a Peaceful Paradise. Think you have what it takes to survive amongst the "
+            "trees?"
+        ),
+        invite_url="https://discord.gg/TsSGsBGYsK",
+    ),
+    "Snow": NationInfo(
+        title="United North",
+        blurb=(
+            "The United North, commonly called Snow, is a mountain federation that pairs its deep "
+            "history with a simple philosophy: let people play the game and have fun without "
+            "unnecessary drama. Having survived four constitutions, high-profile espionage trials, "
+            "and foreign propaganda wars, the North is one of the most organized and stable nations "
+            "around. Power is balanced between our national ministry, the supreme court, and "
+            "semi-autonomous Cantons that run their own local affairs. Whether you want to take "
+            "part in running a Canton or completely ignore the government and just build, there's a "
+            "place for you.\n\n"
+            "For more information about the United North, visit our "
+            "[wiki page](https://insmp.miraheze.org/wiki/The_United_North) (or check out the "
+            "Discord server too)!"
+        ),
+        invite_url="https://discord.gg/K74Vqpg26R",
+    ),
+}
+
 USER_AGENT = "discord-moderation-sync/nation-selector"
 DEFAULT_OAUTH_CALLBACK_PATH = "/oauth/microsoft/callback"
 DEFAULT_OAUTH_STATE_TTL_SECONDS = 600
@@ -1251,6 +1401,40 @@ class NationSelector(commands.Cog):
 
         print(f"[nation_selector.py] {message}")
 
+    async def send_nation_welcome_dm(self, member: discord.Member, nation_name: str) -> None:
+        info = NATION_INFO.get(nation_name)
+
+        if info is None:
+            await self.log(
+                member.guild,
+                f"No nation DM info configured for `{nation_name}`; skipped welcome DM for `{member.id}`.",
+            )
+            return
+
+        embed = discord.Embed(
+            title=info.title,
+            description=info.blurb,
+            color=discord.Color.blurple(),
+        )
+        embed.set_footer(text=f"You were assigned to {nation_name}.")
+
+        view = discord.ui.View()
+        view.add_item(
+            discord.ui.Button(
+                label="Join Discord",
+                style=discord.ButtonStyle.link,
+                url=info.invite_url,
+            )
+        )
+
+        try:
+            await member.send(embed=embed, view=view)
+        except (discord.Forbidden, discord.HTTPException) as exc:
+            await self.log(
+                member.guild,
+                f"Could not DM nation welcome info to `{member.id}`: `{type(exc).__name__}: {exc}`",
+            )
+
     async def start_registration(self, interaction: discord.Interaction) -> None:
         if not self.home_guild_ready(interaction):
             await self.send_ephemeral(interaction, "Use this in the configured primary server.")
@@ -1529,6 +1713,9 @@ class NationSelector(commands.Cog):
                 nation_name,
                 reason="Nation selector Microsoft OAuth registration.",
             )
+
+            if nation_name:
+                await self.send_nation_welcome_dm(member, nation_name)
 
         account_label = "Bedrock/Geyser" if profile.account_type == "bedrock" else "Java"
         nation_label = nation_name or "No nation (admin)"
