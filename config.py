@@ -112,6 +112,7 @@ SETTING_DEFAULTS: dict[str, str] = {
     "SAVANNA_ROLE_ID": "0",
     "SWAMP_ROLE_ID": "0",
     "CHERRY_ROLE_ID": "0",
+    "MEADOWS_ROLE_ID": "0",
 }
 
 SETTING_DESCRIPTIONS: dict[str, str] = {
@@ -155,6 +156,7 @@ SETTING_DESCRIPTIONS: dict[str, str] = {
     "SAVANNA_ROLE_ID": "Discord role ID for the Savanna nation.",
     "SWAMP_ROLE_ID": "Discord role ID for the Swamp nation.",
     "CHERRY_ROLE_ID": "Discord role ID for the Cherry nation.",
+    "MEADOWS_ROLE_ID": "Discord role ID for the Meadows nation.",
     "SWEARS_FILE": "File path for flagged message terms.",
     "FLAGGED_MESSAGE_REGEX": "Optional regex for flagged-message logging.",
 }
@@ -214,6 +216,7 @@ ENV_MIGRATIONS: dict[str, tuple[str, ...]] = {
     "SAVANNA_ROLE_ID": ("SAVANNA_ROLE_ID",),
     "SWAMP_ROLE_ID": ("SWAMP_ROLE_ID",),
     "CHERRY_ROLE_ID": ("CHERRY_ROLE_ID",),
+    "MEADOWS_ROLE_ID": ("MEADOWS_ROLE_ID",),
 }
 
 
@@ -426,6 +429,7 @@ def reload_settings() -> None:
     global SAVANNA_ROLE_ID
     global SWAMP_ROLE_ID
     global CHERRY_ROLE_ID
+    global MEADOWS_ROLE_ID
     global SWEARS_FILE
     global FLAGGED_MESSAGE_REGEX
     global SYNC_GUILD_IDS
@@ -483,6 +487,7 @@ def reload_settings() -> None:
     SAVANNA_ROLE_ID = _int_setting("SAVANNA_ROLE_ID")
     SWAMP_ROLE_ID = _int_setting("SWAMP_ROLE_ID")
     CHERRY_ROLE_ID = _int_setting("CHERRY_ROLE_ID")
+    MEADOWS_ROLE_ID = _int_setting("MEADOWS_ROLE_ID")
     SWEARS_FILE = get_setting("SWEARS_FILE")
     FLAGGED_MESSAGE_REGEX = get_setting("FLAGGED_MESSAGE_REGEX").strip()
 
