@@ -14,9 +14,9 @@ If you find a security issue, please contact the maintainer privately:
 
 **Contact Info:**
 
-Email: aidarose.pb@gmail.com
+Email: jack@litebyte.co
 
-Discord: aida_rose
+Discord: thweep
 
 
 When reporting a vulnerability, please include:
