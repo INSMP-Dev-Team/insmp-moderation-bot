@@ -61,7 +61,7 @@ NATION_INFO: dict[str, NationInfo] = {
             "and vengeful conquerors. Our constitution enshrines rights, our mooshrooms are "
             "protected against smuggling, and our potions/dried kelp are legal. As our own little "
             "Hong Kong, we are an island nation with limitless food supplies, and near endless "
-            "opportunities."
+            "opportunities. Join our nation today!"
         ),
         invite_url="https://discord.gg/B6F2raU8MX",
     ),
@@ -146,7 +146,7 @@ NATION_INFO: dict[str, NationInfo] = {
             "(NITO), we maintain strong relationships with our neighbors while continuing to grow "
             "at home. Whether you want to help shape our government, build among the mountains, "
             "trade with our allies, or simply find a place to call home, the Cherrian Republic is "
-            "ready for you."
+            "ready for you. Join Cherry and help build its future."
         ),
         invite_url="https://discord.gg/7QV2KRQvPQ",
     ),
@@ -172,7 +172,7 @@ NATION_INFO: dict[str, NationInfo] = {
             "therefore hardy, bursting with ambition and determined to survive. Under the "
             "stewardship of our Ministers, The Federal Jungle Republic will transform this Green "
             "Hell into a Peaceful Paradise. Think you have what it takes to survive amongst the "
-            "trees?"
+            "trees? Join the jungle today!"
         ),
         invite_url="https://discord.gg/TsSGsBGYsK",
     ),
@@ -192,6 +192,19 @@ NATION_INFO: dict[str, NationInfo] = {
             "Discord server too)!"
         ),
         invite_url="https://discord.gg/K74Vqpg26R",
+    ),
+    "Meadows": NationInfo(
+        title="Helianthus",
+        blurb=(
+            "The nation of Helianthus (Meadow nation) is one tucked away, on an island between "
+            "savanna and plains. Helianthus is known for its outgoing leadership, and cooperation "
+            "with others. Helianthus plans to keep peace within the world, and defend the world "
+            "from the chaos of others. Another piece of this nation is how Helianthus plans to "
+            "become the leader in server humanitarian aid, to help as many as possible. Helianthus "
+            "is one of the most peaceful nations, in a hidden paradise. So if you want a peaceful "
+            "land, come join Helianthus, a land for all!"
+        ),
+        invite_url="https://discord.gg/3PuCSnvYHe",
     ),
 }
 
