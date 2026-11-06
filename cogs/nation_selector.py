@@ -206,6 +206,30 @@ NATION_INFO: dict[str, NationInfo] = {
         ),
         invite_url="https://discord.gg/3PuCSnvYHe",
     ),
+    "Mesa": NationInfo(
+        title="New Mesa",
+        blurb=(
+            "Following the collapse of the Grand Republic of Mesa, New Mesa formed as its official "
+            "successor to wipe the slate clean and build back bigger and better than before. "
+            "Whether you want to mine gold, run for office, or just build at your own pace, New "
+            "Mesa has a place for you; join New Mesa today!"
+        ),
+        invite_url="https://discord.gg/dkssXCpxKD",
+    ),
+    "Desert": NationInfo(
+        title="The Kingdom of Solstice",
+        blurb=(
+            "Where others see a barren wasteland, they see opportunities.\n"
+            "Where others would be weak, they will flourish.\n"
+            "When others think they've fallen, they will rise again.\n"
+            "They are kind people. They are a loyal people. They are an enduring people.\n\n"
+            "The Kingdom of Solstice rises against all odds. They are the cactus you don't touch. "
+            "They are the beauty that comes from burnt glass. They are the powder that sparks first "
+            "in a blast. Will you join them and survive through the sands of time? Shall you fall? "
+            "or shall you rise? They are the ones with sand in their eyes."
+        ),
+        invite_url="https://discord.gg/mnwKc6sMKC",
+    ),
 }
 
 USER_AGENT = "discord-moderation-sync/nation-selector"
