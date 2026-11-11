@@ -21,6 +21,7 @@ from discord.ext import commands
 from aiohttp import web
 
 import config
+from common import is_staff
 from storage import moderation_db
 
 
@@ -1260,6 +1261,24 @@ class NationSelector(commands.Cog):
         )
         return False
 
+    async def mod_or_owner_check(self, interaction: discord.Interaction) -> bool:
+        if interaction.user is not None and config.is_bot_owner_id(interaction.user.id):
+            return True
+
+        if (
+            interaction.guild is not None
+            and interaction.guild.id == config.HOME_GUILD_ID
+            and isinstance(interaction.user, discord.Member)
+            and (interaction.user.guild_permissions.administrator or is_staff(interaction.user))
+        ):
+            return True
+
+        await self.send_ephemeral(
+            interaction,
+            "Only primary-server staff, an administrator, or the bot owner can use this command.",
+        )
+        return False
+
     def home_guild_ready(self, interaction: discord.Interaction) -> bool:
         return (
             interaction.guild is not None
@@ -1929,7 +1948,7 @@ class NationSelector(commands.Cog):
         user: discord.User,
         nation: app_commands.Choice[str],
     ):
-        if not await self.admin_or_owner_check(interaction):
+        if not await self.mod_or_owner_check(interaction):
             return
 
         if not self.home_guild_ready(interaction):
